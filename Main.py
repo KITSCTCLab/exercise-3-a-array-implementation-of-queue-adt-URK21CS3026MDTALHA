@@ -101,14 +101,13 @@ class Solution:
           The data that is dequeued if the queue is not empty.
         """
         if self.is_queue_empty()==False:
+            x=self.queue[self.front]
             if self.front==self.rear:
-                x=self.queue[self.front]
-                if self.front==self.rear:
-                    self.front=-1
-                    self.rear=-1
-                else:
-                    self.front+=1
-
+                self.front=-1
+                self.rear=-1
+            else:
+                self.front+=1
+            return x
 
 
 # read the string text
