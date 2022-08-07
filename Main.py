@@ -15,8 +15,8 @@ class Solution:
         Arguments:
           size: An integer to set the size of stack and queue.
         """
-        self.stack = []
-        self.queue = []
+        self.stack = [None]*size
+        self.queue = [None]*size
         self.size = size
         self.top = -1
         self.rear = -1
@@ -28,7 +28,7 @@ class Solution:
         Returns:
           True if it is empty, else returns False.
         """
-        # Write your code here
+        return self.top==-1
 
     def is_queue_empty(self):
         """
@@ -36,7 +36,7 @@ class Solution:
         Returns:
           True if it is empty, else returns False.
         """
-        # Write your code here
+        return self.rear<self.front
 
     def is_stack_full(self):
         """
@@ -44,7 +44,8 @@ class Solution:
         Returns:
           True if it is full, else returns False.
         """
-        # Write your code here
+        return self.top==(self.size-1)
+
 
     def is_queue_full(self):
         """
@@ -52,7 +53,7 @@ class Solution:
         Returns:
           True if it is full, else returns False.
         """
-        # Write your code here
+         return self.rear==(self.size-1)
 
     def push_character(self, character):
         """
@@ -60,7 +61,10 @@ class Solution:
         Arguments:
             character: A character that will be pushed to the stack.
         """
-        # Write your code here
+         if !self.is_stack_full():
+            self.top+=1
+            self.stack[self.top]=character
+
 
     def enqueue_character(self, character):
         """
@@ -68,7 +72,12 @@ class Solution:
         Arguments:
             character: A character that will be enqueued to queue.
         """
-        # Write your code here
+        if !self.is_queue_full():
+            if self.front==-1:
+                self.front=0
+            self.rear+=1
+            self.queue[self.rear]=character
+
 
     def pop_character(self):
         """
@@ -76,7 +85,11 @@ class Solution:
         Returns:
           The data that is popped out if the stack is not empty.
         """
-        # Write your code here
+         if !self.is_stack_empty():
+            x=self.stack[self.top]
+            self.top-=1
+            return x
+
 
     def dequeue_character(self):
         """
@@ -84,7 +97,15 @@ class Solution:
         Returns:
           The data that is dequeued if the queue is not empty.
         """
-        # Write your code here
+         if !self.is_queue_empty():
+            if self.front==self.rear:
+                x=self.queue[self.front]
+                if self.front==self.rear:
+                    self.front=-1
+                    self.rear=-1
+                else:
+                    self.front+=1
+
 
 
 # read the string text
