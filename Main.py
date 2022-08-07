@@ -133,7 +133,7 @@ compare both characters
 If the comparison fails, set is_palindrome as False.
 '''
 
-for i in range(length_of_text/2):
+for i in range(int(length_of_text/2)):
     if(solution.pop_character()!=solution.dequeue_character()):
         is_palindrome=False
 
